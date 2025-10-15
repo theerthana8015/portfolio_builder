@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Portfolio Builder</h1>
+  <p>Select your favorite template to get started!</p>
+
+  <div id="template-gallery">
+    <div class="template-card" onclick="openDemo('template1/portfolio-responsive-complete/index.html', 1)">
+      <img src="assets/template1.png" alt="Template 1">
+      <button>Select Template</button>
+    </div>
+
+    <div class="template-card" onclick="openDemo('template2/Portfolio-Website/index.html', 2)">
+      <img src="assets/template2.png" alt="Template 2">
+      <button>Select Template</button>
+    </div>
+      <div class="template-card" onclick="openDemo('template3/My-Portfolio/index.html', 3)">
+      <img src="assets/template3.png" alt="Template 3">
+      <button>Select Template</button>
+    </div>
+      <div class="template-card" onclick="openDemo('template4/portfolio-my/index.html', 4)">
+      <img src="assets/template4.png" alt="Template 4">
+      <button>Select Template</button>
+    </div>
+  </div>
+
+  <!-- Demo Modal -->
+  <div id="demoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeDemo()">&times;</span>
+      <iframe id="demoFrame" src=""></iframe>
+      <button id="chooseBtn" onclick="chooseTemplate()">Use This Template</button>
+    </div>
+  </div>
+
+  <!-- Form Modal -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>Enter Your Details</h2>
+      <form id="userForm">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="text" id="role" placeholder="Your Role (e.g., Web Developer)" required><br>
+        <textarea id="about" placeholder="About You"></textarea><br>
+        <input type="text" id="project" placeholder="Project Title"><br>
+        <button type="submit">Generate Portfolio</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
