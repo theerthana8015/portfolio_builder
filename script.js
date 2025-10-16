@@ -12,14 +12,31 @@ function closeDemo() {
 
 function chooseTemplate() {
   closeDemo();
-  document.getElementById("formModal").style.display = "block";
+
+   if (selectedTemplate === 1) {
+    window.location.href = "./temp1.html";
+  }
+  else if (selectedTemplate === 3) {
+    window.location.href = "./temp3.html";
+  }
+  else if (selectedTemplate === 2) {
+    window.location.href = "./temp2.html";
+  }
+  // ✅ If Template 4 selected → open temp4.html
+  else if (selectedTemplate === 4) {
+    // Use a relative path from index.html
+    window.location.href = "./temp4.html";
+  } else {
+    document.getElementById("formModal").style.display = "block";
+  }
 }
 
 function closeForm() {
   document.getElementById("formModal").style.display = "none";
 }
 
-document.getElementById("userForm").addEventListener("submit", async function (e) {
+// Form submit for other templates
+document.getElementById("userForm")?.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
@@ -68,9 +85,7 @@ document.getElementById("userForm").addEventListener("submit", async function (e
 
   const zip = new JSZip();
   zip.file("index.html", templateHTML);
-
-  const cssContent = "/* Add your CSS here */";
-  zip.file("style.css", cssContent);
+  zip.file("style.css", "/* Add your CSS here */");
 
   const content = await zip.generateAsync({ type: "blob" });
   saveAs(content, `${name.replace(" ", "_")}_Portfolio.zip`);
