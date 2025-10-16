@@ -107,21 +107,27 @@ p,h3{
     text-decoration: none;
     text-transform: uppercase;
 }
-
+/*#heading, .page1, .main {
+  overflow: visible;
+}*/
 #heading{
     /* margin-top: 13%; */
     margin-bottom:10%;
     margin-top: 10%;
     margin-left: auto;
     text-align: center;
+    
 }
 
 #heading h1{
     color: aliceblue;
     line-height: 0.9;
-    font-size: 11vw;
+   font-size: 11vw;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
+  /*    font-size: clamp(2rem, 5vw, 6rem);*/
+  white-space: normal;
+  
 }
 #heading h1:nth-child(1){
     letter-spacing: 0.18em;
@@ -229,7 +235,7 @@ p,h3{
     padding: 10px 10%;
 }
 span.blue,.gradient{
-  outline: none;
+  /* outline: none; */
   background: linear-gradient(45deg, #0072ff, #00c6ff, #00ff85, #00fffb, rgb(0, 198, 212));
   background-size: 200% 100%;
   background-clip:text;
@@ -834,8 +840,7 @@ form input, form textarea{
     box-shadow: 0 0 20px rgba(33, 33, 33, 0.333);
 }
 
-/* -----------------cursor follower------------ */
-/* Cursor follower base style */
+
 .cursor-follower {
     position: fixed;
     top: 0;
