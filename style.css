@@ -1,72 +1,255 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f9fafb;
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* === Animated Gradient Background === */
+body {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  background: linear-gradient(-45deg, #0078ff, #00c6ff, #00ffcc, #0078ff);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  min-height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* === Title Section === */
+/* === Novel-Style Glowing Heading with Contrast Color === */
+h1 {
+  margin-top: 50px;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Cinzel Decorative', 'Poppins', serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  
+  /* High-contrast color against background */
+  color: #ffd700; /* bright gold/yellow */
+  
+  /* Glow effect */
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6),
+               0 0 25px rgba(255, 215, 0, 0.4);
+  
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+/* === Heading Glow Animation === */
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6),
+                 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.9),
+                 0 0 45px rgba(255, 215, 0, 0.7);
+  }
+}
+
+p {
+  margin-bottom: 40px;
+  color: #e3f2fd;
+  font-size: 1.1rem;
+}
+
+/* === Template Gallery === */
 #template-gallery {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
+/* === Template Card === */
 .template-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-  background: #fff;
-  width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  width: 260px;
+  padding: 15px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  animation: floatUp 3s ease-in-out infinite alternate;
 }
 
 .template-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.5);
 }
 
 .template-card img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  transition: transform 0.4s ease;
 }
 
+.template-card:hover img {
+  transform: scale(1.1);
+}
+
+/* === Buttons === */
 button {
   margin-top: 10px;
-  padding: 8px 15px;
-  background: #0078ff;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #00c6ff, #0078ff);
   border: none;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+  transition: all 0.3s ease;
 }
 
+button:hover {
+  background: linear-gradient(135deg, #0078ff, #00ffcc);
+  transform: scale(1.08);
+  box-shadow: 0 6px 25px rgba(0, 255, 255, 0.6);
+}
+
+/* === Modal (Glass Effect) === */
 .modal {
   display: none;
   position: fixed;
   z-index: 100;
-  padding-top: 50px;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
 }
 
+/* === Modal Content (Glass Card) === */
 .modal-content {
-  background: white;
-  margin: auto;
-  padding: 20px;
-  width: 70%;
-  border-radius: 10px;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 25px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+  animation: fadeIn 0.5s ease;
+  position: relative;
+  color: #fff;
 }
 
+/* === Close Button === */
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #00eaff;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ff3b3b;
+}
+
+/* === Iframe === */
 iframe {
   width: 100%;
-  height: 400px;
+  height: 420px;
   border: none;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
 }
 
-.close {
-  float: right;
-  font-size: 24px;
-  cursor: pointer;
+/* === Form Inputs (Glowing Inputs) === */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+form input,
+form textarea {
+  width: 90%;
+  max-width: 450px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #d6f3ff;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+form textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* === Submit Button === */
+form button[type="submit"] {
+  background: linear-gradient(135deg, #00eaff, #0078ff);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+form button[type="submit"]:hover {
+  background: linear-gradient(135deg, #0078ff, #00ffcc);
+}
+
+/* === Animations === */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  #template-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .template-card {
+    width: 85%;
+  }
+  .modal-content {
+    width: 90%;
+  }
 }
